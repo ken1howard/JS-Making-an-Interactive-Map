@@ -52,8 +52,11 @@ async function getFoursquare(business) {
 		method: 'GET',
 		headers: {
 		Accept: 'application/json',
-		Authorization: 'fsq3ATzZbmcGhdeFafr73wZcnJ+LlN6bK+4dh19a7ClS4u8='
+		Authorization: 'fsq3Hl9X4q+XJRbBzLaRjPUKsg4+jWkEx9hJuBQB3XF5deg='
 		}
+
+	
+		
 	}
 	let limit = 5
 	let lat = myMap.coordinates[0]
@@ -87,10 +90,13 @@ window.onload = async () => {
 }
 
 // business submit button
+//Adds a drop down list on top of th map
 document.getElementById('submit').addEventListener('click', async (event) => {
-	event.preventDefault()
-	let business = document.getElementById('business').value
-	let data = await getFoursquare(business)
-	myMap.businesses = processBusinesses(data)
-	myMap.addMarkers()
-})
+	event.preventDefault();
+	let select = document.getElementById('business');
+	let business = select.value;
+	let data = await getFoursquare(business);
+	myMap.businesses = processBusinesses(data);
+	myMap.addMarkers();
+  });
+  
